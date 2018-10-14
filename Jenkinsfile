@@ -1,18 +1,15 @@
 pipeline {
     agent any
-	tools {
-	  maven 'Maven'
-
+    tools {
+      maven 'Maven'
+    }
     stages {
 		
         stage ('Build Stage') {
 
             steps {
 			dir("/var/lib/jenkins/workspace/Sukku"){
-			def mvn_version = 'M3'
-			withEnv( ["PATH+MAVEN=${/opt/maven}/bin"] ) {
 			sh 'mvn clean install'
-			}
             }
             }
         }
