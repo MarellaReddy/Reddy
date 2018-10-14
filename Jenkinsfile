@@ -9,7 +9,10 @@ pipeline {
 
             steps {
 			dir("/var/lib/jenkins/workspace/Sukku"){
+			def mvn_version = 'M3'
+			withEnv( ["PATH+MAVEN=${/opt/maven}/bin"] ) {
 			sh 'mvn clean install'
+			}
             }
             }
         }
